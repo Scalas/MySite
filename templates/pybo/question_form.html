@@ -16,12 +16,11 @@
 			{% endfor %}
 			</div>
 		{% endif %}
+		<!-- Error Handle end -->
 		<div class="form-group">
 			<label for="subject">Subject</label>
 			<input type="text" class="form-control" name="subject" id="subject" value = "{{ form.subject.value | default_if_none:'' }}">
 		</div>
-
-		<!-- Error Handle end -->
 		<div class="form-group">
 			<label for="content">Content</label>
 			<textarea class="form-control" name="content" id="content" rows="10">{{ form.content.value | default_if_none:'' }}</textarea>
