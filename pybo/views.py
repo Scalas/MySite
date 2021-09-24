@@ -22,14 +22,14 @@ def index(request):
     # page 값에 해당하는 페이지를 가져온다
     page_obj = paginator.get_page(page)
 
-    # 게시글 리스트로 page_obj 를 넘겨주고 렌더링
-    context = {'question_list':page_obj}
+    # 페이징 처리된 게시글 리스트를 넘겨주고 렌더링
+    context = {'question_list': page_obj}
     return render(request, 'pybo/question_list.html', context)
 
 
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
-    context = {'question':question}
+    context = {'question': question}
     return render(request, 'pybo/question_detail.html', context)
 
 
@@ -46,7 +46,7 @@ def answer_create(request, question_id):
     else:
         form = AnswerForm()
 
-    context = {'question':question, 'form':form}
+    context = {'question': question, 'form': form}
     return render(request, 'pybo/question_detail.html', context)
 
 
