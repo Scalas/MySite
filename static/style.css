@@ -2,3 +2,25 @@
     border-top:dotted 1px #ddd;
     font-size:0.7em;
 }
+
+pre {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    color:white;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    background-color: #000000
+}
+
+blockquote {
+    border: 1px solid #ddd;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-left: 10px solid #F0F0F0
+}
