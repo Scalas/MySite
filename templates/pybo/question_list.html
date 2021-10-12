@@ -83,6 +83,13 @@
 	</ul>
 	<!-- paging end -->
 	<div class="row justify-content-center my-3">
+		<div class="col-3">
+			<select class="form-control so">
+				<option value="recent" {% if so == 'recent' %}selected{% endif %}>최신순</option>
+				<option value="recommended" {% if so == 'recommended' %}selected{% endif %}>추천순</option>
+				<option value="popular" {% if so == 'popular' %}selected{% endif %}>인기순</option>
+			</select>
+		</div>
 		<div class="col-7 input-group">
 			<input type="text" class="form-control kw" value="{{ kw|default_if_none:'' }}">
 			<div class="input-group-append">
@@ -93,6 +100,7 @@
 	<form id="searchForm" method="get" action="{% url 'index' %}">
 		<input type="hidden" id="kw" name="kw" value="{{ kw|default_if_none:'' }}">
 		<input type="hidden" id="page" name="page" value="{{ page }}">
+		<input type="hidden" id="so" name="so" value="{{ so }}">
 	</form>
 </div>
 {% endblock %}
@@ -107,6 +115,12 @@ $(document).ready(function(){
     $("#btn_search").on('click', function() {
     	$("#kw").val($(".kw").val());
     	$("#page").val(1);	// 검색 버튼을 클릭하면 1페이지부터 조회.
+    	$("#searchForm").submit();
+    });
+
+    $(".so").on('change', function() {
+    	$("#so").val($(this).val());
+    	$("#page").val(1);
     	$("#searchForm").submit();
     });
 });
