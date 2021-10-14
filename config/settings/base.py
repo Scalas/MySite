@@ -15,7 +15,7 @@ import os, json
 from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,6 +26,7 @@ secrete_file = os.path.join(BASE_DIR, 'secrete_file.json')
 with open(secrete_file) as f:
     secretes = json.loads(f.read())
 
+
 def get_secrete(setting, secrets=secretes):
     try:
         return secrets[setting]
@@ -33,12 +34,13 @@ def get_secrete(setting, secrets=secretes):
         error_msg = 'Set the {} environment variable'.format(setting)
         raise ImproperlyConfigured(error_msg)
 
-SECRET_KEY = get_secrete('SECRETE_KEY') 
+
+SECRET_KEY = get_secrete('SECRETE_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['13.124.216.96']
+ALLOWED_HOSTS = []
 
 
 # Application definition
