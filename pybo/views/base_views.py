@@ -1,12 +1,15 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q, Count
+import logging
 
 from ..models import Question
 
+logger = logging.getLogger('pybo')
+
 
 def index(request):
-    3 / 0
+    logger.info('INFO 레벨로 출력')
     # page 수 가져오기
     # GET 방식으로 호출된 url 에서 자동으로 page 값을 가져온다.
     # 만약 page 값이 생략되어있다면 디폴드값으로 1을 지정한다.
