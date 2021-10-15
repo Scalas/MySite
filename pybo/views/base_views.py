@@ -6,6 +6,7 @@ from ..models import Question
 
 
 def index(request):
+    3 / 0
     # page 수 가져오기
     # GET 방식으로 호출된 url 에서 자동으로 page 값을 가져온다.
     # 만약 page 값이 생략되어있다면 디폴드값으로 1을 지정한다.
