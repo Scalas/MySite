@@ -27,9 +27,9 @@ with open(secrete_file) as f:
     secretes = json.loads(f.read())
 
 
-def get_secrete(setting, secrets=secretes):
+def get_secrete(setting, secrete=secretes):
     try:
-        return secrets[setting]
+        return secrete[setting]
     except:
         error_msg = 'Set the {} environment variable'.format(setting)
         raise ImproperlyConfigured(error_msg)
